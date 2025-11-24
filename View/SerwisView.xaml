@@ -1,0 +1,87 @@
+﻿<UserControl
+    x:Class="LifetimeToolManage.View.SerwisView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignHeight="500"
+    d:DesignWidth="800"
+    Background="white"
+    mc:Ignorable="d">
+
+    <Grid Margin="20">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*" />
+            <!--  Lewa kolumna  -->
+            <ColumnDefinition Width="3*" />
+            <!--  Prawa kolumna (pusta na przyszłość)  -->
+        </Grid.ColumnDefinitions>
+
+        <StackPanel
+            Grid.Column="0"
+            Width="300"
+            Margin="0,0,20,0"
+            HorizontalAlignment="Left"
+            Orientation="Vertical">
+
+            <!--  🔝 Aktywne narzędzie  -->
+            <GroupBox Margin="0,0,0,10" Header="Aktywne narzędzie">
+                <StackPanel>
+                    <TextBlock FontWeight="Bold" Text="Nazwa:" />
+                    <TextBlock Margin="0,5,0,10" Text="{Binding ActiveToolHeader}" />
+                    <TextBlock FontWeight="Bold" Text="Przebieg:" />
+                    <TextBlock Margin="0,5,0,0" Text="{Binding ActiveLifetime}" />
+                </StackPanel>
+            </GroupBox>
+
+            <!--  ➕ Dodaj narzędzie  -->
+            <GroupBox Margin="0,0,0,10" Header="Dodaj nowe narzędzie">
+                <StackPanel Orientation="Horizontal">
+                    <TextBox
+                        Width="150"
+                        Margin="0,0,10,0"
+                        Text="{Binding ToolCode, UpdateSourceTrigger=PropertyChanged}" />
+                    <Button
+                        Width="80"
+                        Command="{Binding AddToolsCommand}"
+                        Content="Dodaj" />
+                </StackPanel>
+            </GroupBox>
+
+            <!--  ✅ Aktywuj narzędzie  -->
+            <GroupBox Margin="0,0,0,10" Header="Aktywuj narzędzie">
+                <StackPanel Orientation="Horizontal">
+                    <TextBox
+                        Width="150"
+                        Margin="0,0,10,0"
+                        Text="{Binding ActivateToolCode, UpdateSourceTrigger=PropertyChanged}" />
+                    <Button
+                        Width="80"
+                        Command="{Binding ActivateToolCommand}"
+                        Content="Aktywuj" />
+                </StackPanel>
+            </GroupBox>
+
+            <!--  🔄 Zmień przebieg  -->
+            <GroupBox Header="Zmień przebieg narzędzia">
+                <StackPanel Orientation="Horizontal">
+                    <TextBox
+                        Width="150"
+                        Margin="0,0,10,0"
+                        Text="{Binding NewLifetime, UpdateSourceTrigger=PropertyChanged}" />
+
+                    <Button
+                        Width="80"
+                        Command="{Binding ChangeLifetimeQuantityCommand}"
+                        Content="Zmień" />
+                </StackPanel>
+            </GroupBox>
+
+        </StackPanel>
+
+        <!--  🪟 Prawa kolumna (Grid.Column=1) — pusta, gotowa na przyszłość  -->
+        <Grid Grid.Column="1">
+            <!--  Możesz tu dodać np. wykresy, logi, historię narzędzi  -->
+        </Grid>
+    </Grid>
+</UserControl>

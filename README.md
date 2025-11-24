@@ -25,5 +25,10 @@ Zapisywanie do bazy danych działa.
    ```bash
    dotnet ef migrations add InitialCreate
    dotnet ef database update
-  ```
+4.Uruchom aplikację (F5).
 
+
+
+![Widok główny](pictures/app1.png
+
+![Serwis](pictures/app2.png

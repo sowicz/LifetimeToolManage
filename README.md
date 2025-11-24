@@ -29,6 +29,6 @@ Zapisywanie do bazy danych działa.
 
 
 
-![Widok główny](pictures/app1.png
+![Widok główny](pictures/app1.png)
 
-![Serwis](pictures/app2.png
+![Serwis](pictures/app2.png)
